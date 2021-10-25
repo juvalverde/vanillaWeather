@@ -18,6 +18,7 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
+
   let day = weekDays[date.getDay()];
 
   return `${day} ${hours}:${minutes}`;
@@ -25,6 +26,7 @@ function formatDate(timestamp) {
 
 // display the temperature, city and other parameters from the API
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#currentTemperature");
   let cityElement = document.querySelector("#currentCity");
   let descriptionElement = document.querySelector("#currentDescription");
@@ -32,6 +34,8 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#currentHumidity");
   let windElement = document.querySelector("#currentWind");
   let dateElement = document.querySelector("#currentDate");
+  let iconElement = document.querySelector("#currentIcon");
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -39,6 +43,11 @@ function displayTemperature(response) {
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // API call

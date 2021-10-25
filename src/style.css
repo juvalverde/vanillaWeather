@@ -29,6 +29,12 @@ li::first-letter {
   text-transform: capitalize;
 }
 
+img {
+  width: 80px;
+  float: left;
+  margin-right: 8px;
+}
+
 .weatherAppWrapper {
   max-width: 600px;
   margin: 30px auto;
@@ -44,11 +50,11 @@ li::first-letter {
   margin-bottom: 20px;
 }
 
-.weatherEmoji {
+/* .weatherEmoji {
   float: left;
   margin-right: 8px;
   font-size: 50px;
-}
+} */
 
 .weatherTemperature {
   display: inline-block;
