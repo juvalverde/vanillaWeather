@@ -10,6 +10,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Ju Weather App</title>
   </head>
@@ -18,10 +19,10 @@
       <div class="weatherAppWrapper">
         <div class="weatherApp">
           <div class="cityOverview">
-            <h1>Amsterdam</h1>
+            <h1 id="currentCity"></h1>
             <ul>
               <li>Monday 21:26</li>
-              <li>Rainy</li>
+              <li id="currentDescription"></li>
             </ul>
           </div>
           <div class="row">
@@ -29,16 +30,16 @@
               <div class="clearfix">
                 <div class="float-left weatherEmoji">🌧</div>
                 <div class="float-left weatherTemperature">
-                  <strong>13</strong>
+                  <strong id="currentTemperature"></strong>
                   <small class="units"> ºC | <a href="#">ºF</a></small>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipitation: 100%</li>
-                <li>Humidity: 50%</li>
-                <li>Wind: 5 km/h</li>
+                <li>Feels like: <span id="currentFeel"></span>ºC</li>
+                <li>Humidity: <span id="currentHumidity"></span>%</li>
+                <li>Wind: <span id="currentWind"></span> km/h</li>
               </ul>
             </div>
           </div>
