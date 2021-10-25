@@ -18,8 +18,21 @@
     <div class="container">
       <div class="weatherAppWrapper">
         <div class="weatherApp">
-          <form id="serachForm">
-            <input type="search" placeholder="Type a city..." />
+          <form id="serachForm" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Serach for a city..."
+                  class="form-control"
+                  id="cityInput"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="search" class="btn btn-primary" />
+              </div>
+            </div>
           </form>
           <div class="cityOverview">
             <h1 id="currentCity"></h1>

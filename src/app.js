@@ -24,9 +24,9 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-// display the temperature, city and other parameters from the API
+// handles the display of temperature, city, humidity and other parameters from the API
 function displayTemperature(response) {
-  console.log(response.data);
+  // console.log(response.data);
   let temperatureElement = document.querySelector("#currentTemperature");
   let cityElement = document.querySelector("#currentCity");
   let descriptionElement = document.querySelector("#currentDescription");
@@ -50,9 +50,26 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-// API call
-let apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
-let city = "Amsterdam";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+// search engine function
+function search(city) {
+  // API call
+  let apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
+  // let city = "Amsterdam";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+// handles the submit action
+function submitAction(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#cityInput");
+  search(cityInputElement.value);
+  // console.log(cityInputElement.value);
+}
+
+search("Amsterdam");
+
+// search engine
+let form = document.querySelector("#serachForm");
+form.addEventListener("submit", submitAction);
