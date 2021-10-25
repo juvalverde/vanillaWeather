@@ -92,3 +92,7 @@ a {
 .days:last-child {
   border-right: none;
 }
+
+.weatherTemperature .active {
+  color: #333;
+}

@@ -36,7 +36,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#currentDate");
   let iconElement = document.querySelector("#currentIcon");
 
-  celciusTemperature = response.data.main.temp;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -67,15 +67,24 @@ function submitAction(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#cityInput");
   search(cityInputElement.value);
-  // console.log(cityInputElement.value);
 }
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
 
   let temperatureElement = document.querySelector("#currentTemperature");
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelciusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currentTemperature");
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  temperatureElement.innerHTML = celciusTemperature;
 }
 
 let celciusTemperature = null;
@@ -86,5 +95,8 @@ form.addEventListener("submit", submitAction);
 
 let fahrenheitLink = document.querySelector("#toFahrenheit");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celciusLink = document.querySelector("#toCelcius");
+celciusLink.addEventListener("click", showCelciusTemperature);
 
 search("Amsterdam");
