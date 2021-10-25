@@ -36,6 +36,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#currentDate");
   let iconElement = document.querySelector("#currentIcon");
 
+  celciusTemperature = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -68,8 +70,21 @@ function submitAction(event) {
   // console.log(cityInputElement.value);
 }
 
-search("Amsterdam");
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#currentTemperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celciusTemperature = null;
 
 // search engine
 let form = document.querySelector("#serachForm");
 form.addEventListener("submit", submitAction);
+
+let fahrenheitLink = document.querySelector("#toFahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+search("Amsterdam");
