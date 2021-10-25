@@ -17,12 +17,13 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 li {
   list-style-type: none;
   display: block;
   font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
+  font-weight: 300;
+  line-height: 22px;
 }
 
 li::first-letter {
@@ -33,6 +34,10 @@ img {
   width: 80px;
   float: left;
   margin-right: 8px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .weatherAppWrapper {
@@ -73,4 +78,17 @@ img {
   position: relative;
   font-size: 16px;
   top: -30px;
+}
+
+.message {
+  font-weight: 100;
+  margin: 5px 0px 20px 0px;
+}
+
+.days {
+  border-right: 1px solid #ddd;
+  text-align: center;
+}
+.days:last-child {
+  border-right: none;
 }
