@@ -1,3 +1,4 @@
+// display the local time from the API
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -22,6 +23,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// display the temperature, city and other parameters from the API
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#currentTemperature");
   let cityElement = document.querySelector("#currentCity");
@@ -39,7 +41,9 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
+// API call
 let apiKey = "535cacbb3f8a0df0aeb4790235b9541f";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Amsterdam&appid=${apiKey}&units=metric`;
+let city = "Amsterdam";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
