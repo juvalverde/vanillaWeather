@@ -26,18 +26,18 @@ li {
   line-height: 22px;
 }
 
+a {
+  text-decoration: none;
+}
+
 li::first-letter {
   text-transform: capitalize;
 }
 
-img {
+.clearfix img {
   width: 80px;
   float: left;
   margin-right: 8px;
-}
-
-a {
-  text-decoration: none;
 }
 
 .weatherAppWrapper {
@@ -85,14 +85,27 @@ a {
   margin: 5px 0px 20px 0px;
 }
 
+.weatherTemperature .active {
+  color: #333;
+}
+
+.weatherForecast {
+  text-align: center;
+  font-size: 16px;
+}
+
 .days {
   border-right: 1px solid #ddd;
-  text-align: center;
 }
 .days:last-child {
   border-right: none;
 }
 
-.weatherTemperature .active {
-  color: #333;
+.weatherForecastDescription,
+.weatherForecastTemperature {
+  font-size: 14px;
+}
+
+.minTemp {
+  color: #70757a;
 }
