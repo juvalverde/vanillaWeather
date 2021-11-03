@@ -55,12 +55,6 @@ li::first-letter {
   margin-bottom: 20px;
 }
 
-/* .weatherEmoji {
-  float: left;
-  margin-right: 8px;
-  font-size: 50px;
-} */
-
 .weatherTemperature {
   display: inline-block;
 }
@@ -91,7 +85,7 @@ li::first-letter {
 
 .weatherForecast {
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .days {
@@ -99,11 +93,6 @@ li::first-letter {
 }
 .days:last-child {
   border-right: none;
-}
-
-.weatherForecastDescription,
-.weatherForecastTemperature {
-  font-size: 14px;
 }
 
 .minTemp {

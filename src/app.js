@@ -24,6 +24,37 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// display forecast days
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 days">
+        <div class="weatherForecastDay">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/02d@2x.png"
+          alt=""
+          width="40px"
+        />
+        <div class="weatherForecastTemperature">
+          <span class="maxTemp">23º</span> |
+          <span class="minTemp">10º</span>
+        </div>
+        <div class="weatherForecastDescription">Sunny</div>
+      </div>
+    
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // handles the display of temperature, city, humidity and other parameters from the API
 function displayTemperature(response) {
   // console.log(response.data);
@@ -100,3 +131,4 @@ let celciusLink = document.querySelector("#toCelcius");
 celciusLink.addEventListener("click", showCelciusTemperature);
 
 search("Amsterdam");
+displayForecast();
